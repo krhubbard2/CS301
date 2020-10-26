@@ -22,8 +22,8 @@ void help(Fl_Widget* w, void* data){
   Fl_Window* window = new Fl_Window(380, 150, "Help");
     window->box(FL_PLASTIC_UP_BOX);
     Fl_Box* box = new Fl_Box(35, 60, 300, 35,
-      "First import a TSP file you'd like to analyze.\n"
-      "Please note the TSP file must include nodes in\n"
+      "Help instructions will be here.\n"
+      "I promise.\n"
       "");
   window->show();
   box->show();
