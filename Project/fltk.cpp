@@ -13,7 +13,7 @@
 // Info on these functions can be found in bar.asm
 
 extern "C" int foo(void);
-extern "C" long* generate(long difficulty);
+extern "C" long generate(long difficulty);
 
 // ***** Dropdown Menu Functions *****
 
@@ -51,8 +51,11 @@ void quitProgram(Fl_Widget* w, void* data)
 
 void generateButtonCallback(Fl_Widget* w, void* data)
 {
-  std::cout << generate(diffValue(w,data)) << std::endl;
-  //std::cout << diffValue(w, data) << std::endl;
+  //std::cout << generate(diffValue(w,data)) << std::endl;
+  //std::cout << decToBinary(generate(diffValue(w,data))) << std::endl;
+  Fl_Button* b = (Fl_Button*) w;
+  Fl_Output * o = (Fl_Output*)b->parent()->child(3);
+  o->value(decToBinary(generate(diffValue(w,data))).c_str());
 }
 
 void submitButtonCallback(Fl_Widget* w, void* data)
@@ -70,13 +73,17 @@ long diffValue(Fl_Widget* w, void* data)
   return final;
 }
 
-int randomNum(int difficulty)
-{
-  int low = 0;
-  int high = 0;
-
-  std::random_device rd;
-  std::mt19937 gen1(rd());
-  std::uniform_int_distribution<int> dist(low, high);
-  return dist(gen1);
-}
+// Function that convert Decimal to binary 
+string decToBinary(long n) 
+{ 
+  string result = "";
+    // Size of an integer is assumed to be 8 bits 
+    for (long i = 7; i >= 0; i--) { 
+        long k = n >> i; 
+        if (k & 1) 
+          result.append("1");
+        else
+          result.append("0");
+    } 
+    return result;
+} 

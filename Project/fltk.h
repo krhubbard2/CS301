@@ -15,6 +15,8 @@
 
 // For std::random_device, std::mt19937, std::uniform_int_distribution
 #include <random>
+#include <string>
+using std::string;
 
 #include <FL/Fl.H>
 #include <FL/Fl_Double_Window.H>
@@ -40,8 +42,10 @@ void generateButtonCallback(Fl_Widget* w, void* data);
 // Callback function for submitButton
 void submitButtonCallback(Fl_Widget* w, void* data);
 
+// Difficulty Value is returned as a long
 long diffValue(Fl_Widget* w, void* data);
 
-int randomNum(int difficulty);
+
+string decToBinary(long n);
 
 #endif // FILE_FLTK_H_INCLUDED
