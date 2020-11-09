@@ -1,7 +1,7 @@
 // fltk.cpp
 // Kelby Hubbard
 // Started: 2020-10-15
-// Updated: 2020-10-24
+// Updated: 2020-11-08
 
 // For CS 301 Fall 2020
 // FLTK source code for Assembly Language Programming Project
@@ -9,11 +9,6 @@
 
 #include "fltk.h"
 
-// ***** Assembly Language Functions *****
-// Info on these functions can be found in bar.asm
-
-extern "C" int foo(void);
-extern "C" long generate(long difficulty);
 
 // ***** Dropdown Menu Functions *****
 
@@ -51,16 +46,68 @@ void quitProgram(Fl_Widget* w, void* data)
 
 void generateButtonCallback(Fl_Widget* w, void* data)
 {
-  //std::cout << generate(diffValue(w,data)) << std::endl;
-  //std::cout << decToBinary(generate(diffValue(w,data))) << std::endl;
   Fl_Button* b = (Fl_Button*) w;
   Fl_Output * o = (Fl_Output*)b->parent()->child(3);
+
+  // Generate random number and convert to binary. Display output.
   o->value(decToBinary(generate(diffValue(w,data))).c_str());
+
+  Fl_Output * o1 = (Fl_Output*)b->parent()->child(5);
+  string gen = "Enter your guess then submit.";
+  o1->value(gen.c_str());
+
 }
 
 void submitButtonCallback(Fl_Widget* w, void* data)
 {
-  foo();
+  // Grab user input
+  Fl_Button* b = (Fl_Button*) w;
+  Fl_Output * o = (Fl_Output*)b->parent()->child(4);
+  string input = o->value();
+
+  // Grab generated binary and convert to decimal
+  Fl_Output * o1 = (Fl_Output*)b->parent()->child(3);
+  string binaryOut = o1->value();
+  int decimalOut = binaryToDecimal(binaryOut);
+
+
+  // 
+  int decIn;
+  std::stringstream stream;
+  stream << input;
+  stream >> std::hex >> decIn;
+
+  // If user input was correct
+  Fl_Output * op = (Fl_Output*)b->parent()->child(5);
+  if (decIn == decimalOut)
+  {
+    string win = "Correct!";
+    op->value(win.c_str());
+  }
+  else
+  {
+    string lose = "Wrong.";
+    op->value(lose.c_str());
+  }
+
+}
+
+void concedeButtonCallback(Fl_Widget* w, void* data)
+{
+  Fl_Button* b = (Fl_Button*) w;
+  Fl_Output * o = (Fl_Output*)b->parent()->child(3);
+  string binaryOut = o->value(); 
+  int decimalOut = binaryToDecimal(binaryOut);
+
+  std::stringstream stream;
+  stream << std::hex << decimalOut;
+  string answer = (stream.str());
+
+  Fl_Output * o1 = (Fl_Output*)b->parent()->child(5);
+  string out = "The correct answer was " + answer;
+  o1->value(out.c_str());
+
+
 }
 
 long diffValue(Fl_Widget* w, void* data)
@@ -87,3 +134,26 @@ string decToBinary(long n)
     } 
     return result;
 } 
+
+// Function to convert binary to decimal
+int binaryToDecimal(string n)
+{
+
+    int num = std::stoi(n);
+    int dec_value = 0;
+ 
+    // Initializing base value to 1, i.e 2^0
+    int base = 1;
+ 
+    int temp = num;
+    while (temp) {
+        int last_digit = temp % 10;
+        temp = temp / 10;
+ 
+        dec_value += last_digit * base;
+ 
+        base = base * 2;
+    }
+ 
+    return dec_value;
+}

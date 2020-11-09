@@ -1,7 +1,7 @@
 // fltk.h
 // Kelby Hubbard
 // Started: 2020-10-15
-// Updated: 2020-10-24
+// Updated: 2020-11-08
 
 // For CS 301 Fall 2020
 // FLTK header for Assembly Language Programming Project
@@ -17,6 +17,8 @@
 #include <random>
 #include <string>
 using std::string;
+#include <iomanip>
+#include <sstream>
 
 #include <FL/Fl.H>
 #include <FL/Fl_Double_Window.H>
@@ -26,6 +28,13 @@ using std::string;
 #include <FL/Fl_File_Chooser.H>
 #include <FL/Fl_Input.H>
 #include <FL/Fl_Spinner.H>
+
+
+// ***** Assembly Language Functions *****
+// Info on these functions can be found in bar.asm
+
+extern "C" int foo(void);
+extern "C" long generate(long difficulty);
 
 // Help function for menu dropdown bar
 void help(Fl_Widget* w, void* data);
@@ -42,10 +51,15 @@ void generateButtonCallback(Fl_Widget* w, void* data);
 // Callback function for submitButton
 void submitButtonCallback(Fl_Widget* w, void* data);
 
+void concedeButtonCallback(Fl_Widget* w, void* data);
+
+
 // Difficulty Value is returned as a long
 long diffValue(Fl_Widget* w, void* data);
 
 
 string decToBinary(long n);
+
+int binaryToDecimal(string n);
 
 #endif // FILE_FLTK_H_INCLUDED

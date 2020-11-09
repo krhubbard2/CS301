@@ -1,7 +1,7 @@
 // main.cpp
 // Kelby Hubbard
 // Started: 2020-10-15
-// Updated: 2020-10-24
+// Updated: 2020-11-08
 
 // For CS 301 Fall 2020
 // Main source code for Assembly Language Programming Project
@@ -63,15 +63,22 @@ int main(int argc, char** argv)
     { Fl_Output* resultOutput = new Fl_Output(245, 175, 215, 50, "Result");
       resultOutput->box(FL_PLASTIC_UP_BOX);
       resultOutput->align(Fl_Align(FL_ALIGN_BOTTOM));
+      string start = "First click \"Generate\"!";
+      resultOutput->value(start.c_str());
     }
 
     // Difficulty Counter Child 6
-    { Fl_Spinner* difficultyCounter = new Fl_Spinner(303, 400, 110, 25, "Difficulty");
+    { Fl_Spinner* difficultyCounter = new Fl_Spinner(303, 450, 110, 25, "Difficulty");
       difficultyCounter->align(Fl_Align(FL_ALIGN_BOTTOM));
       difficultyCounter->box(FL_PLASTIC_UP_BOX);
       difficultyCounter->range(1,4);
     }
 
+    // Concede Button Child 7
+    { Fl_Button* concedeButton = new Fl_Button(265, 380, 185, 50, "Concede");
+      concedeButton->box(FL_PLASTIC_UP_BOX);
+      concedeButton->callback(concedeButtonCallback);
+    }
 
 	//Show main FLTK window
 	mainWindow->end();
