@@ -1,7 +1,7 @@
 // fltk.cpp
 // Kelby Hubbard
 // Started: 2020-10-15
-// Updated: 2020-11-08
+// Updated: 2020-11-11
 
 // For CS 301 Fall 2020
 // FLTK source code for Assembly Language Programming Project
@@ -12,7 +12,8 @@
 
 // ***** Dropdown Menu Functions *****
 
-//Help function
+// help
+// Refer to header for documentation
 void help(Fl_Widget* w, void* data){
   Fl_Window* window = new Fl_Window(380, 150, "Help");
     window->box(FL_PLASTIC_UP_BOX);
@@ -24,7 +25,8 @@ void help(Fl_Widget* w, void* data){
   box->show();
 }
 
-//Quit function 
+// quit
+// Refer to header for documentation
 void quit(Fl_Widget* w, void* data){
   Fl_Window* window = new Fl_Window(340, 150, "Quit");
   	Fl_Box* box = new Fl_Box(20, 40, 300, 35, "Are you sure you want to quit?");
@@ -36,7 +38,8 @@ void quit(Fl_Widget* w, void* data){
   	window->show();
 }
 
-//Exits program
+// quitProgram
+// Refer to header for documentation
 void quitProgram(Fl_Widget* w, void* data)
 {
 	exit(0);
@@ -44,6 +47,8 @@ void quitProgram(Fl_Widget* w, void* data)
 
 // ***** Callback Functions *****
 
+// generateButtonCallback
+// Refer to header for documentation
 void generateButtonCallback(Fl_Widget* w, void* data)
 {
   Fl_Button* b = (Fl_Button*) w;
@@ -58,6 +63,8 @@ void generateButtonCallback(Fl_Widget* w, void* data)
 
 }
 
+// submitButtonCallback
+// Refer to header for documentation
 void submitButtonCallback(Fl_Widget* w, void* data)
 {
   // Grab user input
@@ -92,6 +99,8 @@ void submitButtonCallback(Fl_Widget* w, void* data)
 
 }
 
+// concedeButtonCallback
+// Refer to header for documentation
 void concedeButtonCallback(Fl_Widget* w, void* data)
 {
   Fl_Button* b = (Fl_Button*) w;
@@ -110,6 +119,8 @@ void concedeButtonCallback(Fl_Widget* w, void* data)
 
 }
 
+// diffValue
+// Refer to header for documentation
 long diffValue(Fl_Widget* w, void* data)
 {
   double temp = 0;
@@ -120,7 +131,8 @@ long diffValue(Fl_Widget* w, void* data)
   return final;
 }
 
-// Function that convert Decimal to binary 
+// decToBinary
+// Refer to header for documentation
 string decToBinary(long n) 
 { 
   string result = "";
@@ -135,7 +147,8 @@ string decToBinary(long n)
     return result;
 } 
 
-// Function to convert binary to decimal
+// binaryToDecimal
+// Refer to header for documentation
 int binaryToDecimal(string n)
 {
 

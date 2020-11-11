@@ -1,7 +1,7 @@
 // main.cpp
 // Kelby Hubbard
 // Started: 2020-10-15
-// Updated: 2020-11-08
+// Updated: 2020-11-11
 
 // For CS 301 Fall 2020
 // Main source code for Assembly Language Programming Project
@@ -63,8 +63,11 @@ int main(int argc, char** argv)
     { Fl_Output* resultOutput = new Fl_Output(245, 175, 215, 50, "Result");
       resultOutput->box(FL_PLASTIC_UP_BOX);
       resultOutput->align(Fl_Align(FL_ALIGN_BOTTOM));
+
+      // Starting output
       string start = "First click \"Generate\"!";
       resultOutput->value(start.c_str());
+     // resultOutput->value(startString());
     }
 
     // Difficulty Counter Child 6
@@ -77,6 +80,8 @@ int main(int argc, char** argv)
     // Concede Button Child 7
     { Fl_Button* concedeButton = new Fl_Button(265, 380, 185, 50, "Concede");
       concedeButton->box(FL_PLASTIC_UP_BOX);
+
+      // On button press
       concedeButton->callback(concedeButtonCallback);
     }
 
