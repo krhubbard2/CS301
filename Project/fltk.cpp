@@ -69,31 +69,43 @@ void submitButtonCallback(Fl_Widget* w, void* data)
   // Grab user input
   Fl_Button* b = (Fl_Button*) w;
   Fl_Output * o = (Fl_Output*)b->parent()->child(4);
+  Fl_Output * op = (Fl_Output*)b->parent()->child(5);
+  Fl_Output * o1 = (Fl_Output*)b->parent()->child(3);
+
   string input = o->value();
 
   // Grab generated binary and convert to decimal
-  Fl_Output * o1 = (Fl_Output*)b->parent()->child(3);
   string binaryOut = o1->value();
-  int decimalOut = binaryToDecimal(binaryOut);
 
 
-  // 
-  int decIn;
-  std::stringstream stream;
-  stream << input;
-  stream >> std::hex >> decIn;
 
-  // If user input was correct
-  Fl_Output * op = (Fl_Output*)b->parent()->child(5);
-  if (decIn == decimalOut)
+  // In the case user didn't click generate first
+  if (binaryOut == "")
   {
-    op->value(correctString());
+    string inc = "Click \"Generate\" first";
+    op->value(inc.c_str());
   }
   else
   {
-    op->value(wrongString());
-  }
+    int decimalOut = binaryToDecimal(binaryOut);
 
+
+    // 
+    int decIn;
+    std::stringstream stream;
+    stream << input;
+    stream >> std::hex >> decIn;
+  
+    // If user input was correct
+    if (decIn == decimalOut)
+    {
+      op->value(correctString());
+    }
+     else
+     {
+      op->value(wrongString());
+     }
+   }
 }
 
 // concedeButtonCallback
@@ -103,15 +115,27 @@ void concedeButtonCallback(Fl_Widget* w, void* data)
   Fl_Button* b = (Fl_Button*) w;
   Fl_Output * o = (Fl_Output*)b->parent()->child(3);
   string binaryOut = o->value(); 
-  int decimalOut = binaryToDecimal(binaryOut);
-
-  std::stringstream stream;
-  stream << std::hex << decimalOut;
-  string answer = (stream.str());
-
   Fl_Output * o1 = (Fl_Output*)b->parent()->child(5);
-  string out = "The correct answer was " + answer;
-  o1->value(out.c_str());
+
+  // In the case user didn't click generate first
+  if (binaryOut == "")  
+  {
+    string inc = "Click \"Generate\" first";
+    o1->value(inc.c_str());
+  }
+  else 
+  {
+    int decimalOut = binaryToDecimal(binaryOut);
+
+   std::stringstream stream;
+   stream << std::hex << decimalOut;
+   string answer = (stream.str());
+
+   Fl_Output * o1 = (Fl_Output*)b->parent()->child(5);
+   string out = "The correct answer was " + answer;
+   o1->value(out.c_str());
+  }
+ 
 
 
 }

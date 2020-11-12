@@ -28,11 +28,15 @@ int main(int argc, char** argv)
 	{ Fl_Menu_Bar* menuBar
 			= new Fl_Menu_Bar(0, 0, 85, 25);
 	  	menuBar->box(FL_PLASTIC_UP_BOX);
-		//When selected runs "open()" in fltk.cpp
-		menuBar->add("File/Open", FL_CTRL + 'o',help);
-		//When selected runs "quit()" in fltk.cpp
+		// When selected runs "generateButtonCallback()" in fltk.cpp
+    menuBar->add("File/Generate", FL_CTRL + 'g',generateButtonCallback);
+    // When selected runs "submitButtonCallback()" in fltk.cpp
+    menuBar->add("File/Submit", FL_CTRL + 's',submitButtonCallback);
+    // When selected runs "concedeButtonCallback()" in fltk.cpp
+    menuBar->add("File/Concede", FL_CTRL + 'c', concedeButtonCallback);
+		// When selected runs "quit()" in fltk.cpp
 		menuBar->add("File/Quit", FL_CTRL + 'q',quit);
-		//When selected runs "help()" in fltk.cpp
+		// When selected runs "help()" in fltk.cpp
 		menuBar->add("Help/Help", FL_CTRL + 'h',help);
 	}
 
