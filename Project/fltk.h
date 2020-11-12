@@ -39,7 +39,10 @@ using std::string;
 // ***** Assembly Language Functions *****
 // Info on these functions can be found in bar.asm
 
-extern "C" const char* startString(void);
+extern "C" const char* resultOutputStartup(void);
+extern "C" const char* generateButtonClick(void);
+extern "C" const char* correctString(void);
+extern "C" const char* wrongString(void);
 extern "C" long generate(long difficulty);
 
 // help

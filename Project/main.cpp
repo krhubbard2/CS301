@@ -7,6 +7,11 @@
 // Main source code for Assembly Language Programming Project
 // Binary to hexadecimal tester
 
+// Please note this program is not a very clean way to make this
+// program. This program implements assembly lanaguage (x86-64 via nasm).
+// This program can be made simpler, cleaner and more efficiently without
+// implementation of assembly -- which is not the point of writing this.
+
 #include "fltk.h"
 
 // Main program
@@ -66,8 +71,7 @@ int main(int argc, char** argv)
 
       // Starting output
       string start = "First click \"Generate\"!";
-      resultOutput->value(start.c_str());
-     // resultOutput->value(startString());
+      resultOutput->value(resultOutputStartup());
     }
 
     // Difficulty Counter Child 6

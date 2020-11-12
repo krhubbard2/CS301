@@ -10,17 +10,21 @@
 ; ***** Assembly Function Prototypes *****
 section .text
 global generate
-global startString
+global resultOutputStartup
+global generateButtonClick
+global correctString
+global wrongString
 
 ; ***** EXTERNs *****
-extern puts
 extern srand
 extern rand
 extern time
 
-; generate function
+; generate
 ; Difficulty value is passed into rdi as a long (1 <= value <= 4)
+; Generates a random number based off of difficulty level selected
 generate:
+
 cmp rdi, 2
 je twoDiff
 cmp rdi, 3
@@ -28,6 +32,7 @@ je threeDiff
 cmp rdi, 4
 je fourDiff
 
+	; Difficulty level 1
 	oneDiff:
 		mov rdi, 0
 		call time ; For srand use
@@ -44,6 +49,8 @@ je fourDiff
 		mov rax, rdx
 		ret
 
+
+	; Difficulty level 2
 	twoDiff:
 		mov rdi, 0
 		call time ; For srand use
@@ -60,6 +67,8 @@ je fourDiff
 		mov rax, rdx
 		ret
 
+
+	; Difficulty level 3
 	threeDiff:
 		mov rdi, 0
 		call time ; For srand use
@@ -76,6 +85,8 @@ je fourDiff
 		mov rax, rdx
 		ret
 
+
+	; Difficulty level 4
 	fourDiff:
 		mov rdi, 0
 		call time ; For srand use
@@ -92,5 +103,33 @@ je fourDiff
 		mov rax, rdx
 		ret
 
-startString:
-	db `First click Generate!`,0
+resultOutputStartup:
+	mov rax, ROSstring
+	ret
+
+generateButtonClick:
+	mov rax, GBCstring
+	ret
+
+correctString:
+	mov rax, Cstring
+	ret
+
+wrongString:
+	mov rax, Wstring
+	ret
+
+
+; ***** strings *****
+
+ROSstring:
+	db `First click "Generate"`,0
+
+GBCstring:
+	db `Enter your guess then submit.`,0
+
+Cstring:
+	db `Correct!`,0
+
+Wstring:
+	db `Wrong.`,0

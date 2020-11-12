@@ -58,8 +58,7 @@ void generateButtonCallback(Fl_Widget* w, void* data)
   o->value(decToBinary(generate(diffValue(w,data))).c_str());
 
   Fl_Output * o1 = (Fl_Output*)b->parent()->child(5);
-  string gen = "Enter your guess then submit.";
-  o1->value(gen.c_str());
+  o1->value(generateButtonClick());
 
 }
 
@@ -88,13 +87,11 @@ void submitButtonCallback(Fl_Widget* w, void* data)
   Fl_Output * op = (Fl_Output*)b->parent()->child(5);
   if (decIn == decimalOut)
   {
-    string win = "Correct!";
-    op->value(win.c_str());
+    op->value(correctString());
   }
   else
   {
-    string lose = "Wrong.";
-    op->value(lose.c_str());
+    op->value(wrongString());
   }
 
 }
