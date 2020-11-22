@@ -1,7 +1,7 @@
 // fltk.cpp
 // Kelby Hubbard
 // Started: 2020-10-15
-// Updated: 2020-11-11
+// Updated: 2020-11-22
 
 // For CS 301 Fall 2020
 // FLTK source code for Assembly Language Programming Project
@@ -18,9 +18,13 @@ void help(Fl_Widget* w, void* data){
   Fl_Window* window = new Fl_Window(380, 150, "Help");
     window->box(FL_PLASTIC_UP_BOX);
     Fl_Box* box = new Fl_Box(35, 60, 300, 35,
-      "Help instructions will be here.\n"
-      "I promise.\n"
-      "");
+      "To get started first select your difficulty.\n"
+      "The default difficulty will be set to 1.\n"
+      "1 being the easiest and 4 being the hardest.\n"
+      "Then click \"Generate\". Convert the binary to\n"
+      "hexadecimal. Enter you're guess in the\n"
+      "\"hex input\" box and click \"submit\". If you give up\n"
+      "click \"Concede\" and the answer will be displayed.");
   window->show();
   box->show();
 }

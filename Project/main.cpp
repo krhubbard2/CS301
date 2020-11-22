@@ -1,7 +1,7 @@
 // main.cpp
 // Kelby Hubbard
 // Started: 2020-10-15
-// Updated: 2020-11-11
+// Updated: 2020-11-22
 
 // For CS 301 Fall 2020
 // Main source code for Assembly Language Programming Project
@@ -29,11 +29,11 @@ int main(int argc, char** argv)
 			= new Fl_Menu_Bar(0, 0, 85, 25);
 	  	menuBar->box(FL_PLASTIC_UP_BOX);
 		// When selected runs "generateButtonCallback()" in fltk.cpp
-    menuBar->add("File/Generate", FL_CTRL + 'g',generateButtonCallback);
-    // When selected runs "submitButtonCallback()" in fltk.cpp
-    menuBar->add("File/Submit", FL_CTRL + 's',submitButtonCallback);
-    // When selected runs "concedeButtonCallback()" in fltk.cpp
-    menuBar->add("File/Concede", FL_CTRL + 'c', concedeButtonCallback);
+	    menuBar->add("File/Generate", FL_CTRL + 'g',generateButtonCallback);
+	    // When selected runs "submitButtonCallback()" in fltk.cpp
+	    menuBar->add("File/Submit", FL_CTRL + 's',submitButtonCallback);
+	    // When selected runs "concedeButtonCallback()" in fltk.cpp
+	    menuBar->add("File/Concede", FL_CTRL + 'c', concedeButtonCallback);
 		// When selected runs "quit()" in fltk.cpp
 		menuBar->add("File/Quit", FL_CTRL + 'q',quit);
 		// When selected runs "help()" in fltk.cpp
