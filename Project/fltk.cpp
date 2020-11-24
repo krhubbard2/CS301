@@ -150,7 +150,7 @@ void concedeButtonCallback(Fl_Widget* w, void* data)
    string out = "The correct answer was " + answer;
    // Display correct answer to Result Output Box
    o1->value(out.c_str());
-   // Set Result Output Box to default (background) color
+   // Set Result Output Box to default (background) color	
    o1->color(49);
   }
  
