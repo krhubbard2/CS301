@@ -61,8 +61,10 @@ void generateButtonCallback(Fl_Widget* w, void* data)
   // Generate random number and convert to binary. Display output.
   o->value(decToBinary(generate(diffValue(w,data))).c_str());
 
+  // Display random number to Result Output Box (child 5)
   Fl_Output * o1 = (Fl_Output*)b->parent()->child(5);
   o1->value(generateButtonClick());
+  // Set Result Output Box to default (background) color
   o1->color(49);
 
 }
@@ -92,10 +94,8 @@ void submitButtonCallback(Fl_Widget* w, void* data)
   }
   else
   {
+  	// convert decimal to hex to compare answer
     int decimalOut = binaryToDecimal(binaryOut);
-
-
-    // 
     int decIn;
     std::stringstream stream;
     stream << input;
@@ -104,13 +104,18 @@ void submitButtonCallback(Fl_Widget* w, void* data)
     // If user input was correct
     if (decIn == decimalOut)
     {
+      // Generate new binary number
       generateButtonCallback(w, data);
-      op->color(63);
+ 	  // Set Result Output Box to green color to show correct
+ 	  op->color(63);
+ 	  // Display answer was correct
       op->value(correctString());
     }
      else
      {
+      // Set Result Output Box to red color to show incorrect 
       op->color(88);
+      // Display answer was wrong
       op->value(wrongString());
      }
    }
@@ -130,6 +135,7 @@ void concedeButtonCallback(Fl_Widget* w, void* data)
   {
     string inc = "Click \"Generate\" first";
     o1->value(inc.c_str());
+    // Set Result Output Box to default (background) color
     o1->color(49);
   }
   else 
@@ -142,7 +148,9 @@ void concedeButtonCallback(Fl_Widget* w, void* data)
 
    Fl_Output * o1 = (Fl_Output*)b->parent()->child(5);
    string out = "The correct answer was " + answer;
+   // Display correct answer to Result Output Box
    o1->value(out.c_str());
+   // Set Result Output Box to default (background) color
    o1->color(49);
   }
  
