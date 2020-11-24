@@ -66,6 +66,8 @@ int main(int argc, char** argv)
     { Fl_Input* hexInput = new Fl_Input(390, 80, 215, 50, "Hex input");
       hexInput->box(FL_PLASTIC_UP_BOX);
       hexInput->align(Fl_Align(FL_ALIGN_BOTTOM));
+      hexInput->when(FL_WHEN_ENTER_KEY);
+      hexInput->callback(submitButtonCallback);
     }
 
     // Result Output Box Child 5

@@ -63,6 +63,7 @@ void generateButtonCallback(Fl_Widget* w, void* data)
 
   Fl_Output * o1 = (Fl_Output*)b->parent()->child(5);
   o1->value(generateButtonClick());
+  o1->color(49);
 
 }
 
@@ -103,10 +104,13 @@ void submitButtonCallback(Fl_Widget* w, void* data)
     // If user input was correct
     if (decIn == decimalOut)
     {
+      generateButtonCallback(w, data);
+      op->color(63);
       op->value(correctString());
     }
      else
      {
+      op->color(88);
       op->value(wrongString());
      }
    }
@@ -126,6 +130,7 @@ void concedeButtonCallback(Fl_Widget* w, void* data)
   {
     string inc = "Click \"Generate\" first";
     o1->value(inc.c_str());
+    o1->color(49);
   }
   else 
   {
@@ -138,6 +143,7 @@ void concedeButtonCallback(Fl_Widget* w, void* data)
    Fl_Output * o1 = (Fl_Output*)b->parent()->child(5);
    string out = "The correct answer was " + answer;
    o1->value(out.c_str());
+   o1->color(49);
   }
  
 
@@ -195,3 +201,4 @@ int binaryToDecimal(string n)
  
     return dec_value;
 }
+

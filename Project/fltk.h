@@ -93,4 +93,6 @@ string decToBinary(long n);
 // int for use in submitButtonCallback
 int binaryToDecimal(string n);
 
+
+
 #endif // FILE_FLTK_H_INCLUDED
