@@ -1,7 +1,7 @@
 ; bar.asm
 ; Kelby Hubbard
 ; Started: 2020-10-15
-; Updated: 2020-11-22
+; Updated: 2020-11-25
 
 ; For CS 301 Fall 2020
 ; Assembly Language source code for Assembly Language Programming Project
@@ -103,18 +103,26 @@ je fourDiff
 		mov rax, rdx
 		ret
 
+; String to be passed to FLTK Result Output Box (child 5)
+; Sring displayed on start up
 resultOutputStartup:
 	mov rax, ROSstring
 	ret
 
+; String to be passed to FLTK Result Output Box (child 5)
+; String displayed after FLTK Generate Button (child 1) is pressed
 generateButtonClick:
 	mov rax, GBCstring
 	ret
 
+; String to be passed to FLTK Result Output Box (child 5)
+; String displayed after correct guess
 correctString:
 	mov rax, Cstring
 	ret
 
+; String to be passed to FLTK Result Output Box (child 5)
+; String displayed after incorrect guess
 wrongString:
 	mov rax, Wstring
 	ret

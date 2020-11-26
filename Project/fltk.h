@@ -1,12 +1,11 @@
 // fltk.h
 // Kelby Hubbard
 // Started: 2020-10-15
-// Updated: 2020-11-22
+// Updated: 2020-11-25
 
 // For CS 301 Fall 2020
 // FLTK header for Assembly Language Programming Project
 // Binary to hexadecimal tester
-
 
 #ifndef FILE_FLTK_H_INCLUDED
 #define FILE_FLTK_H_INCLUDED
@@ -75,7 +74,6 @@ void submitButtonCallback(Fl_Widget* w, void* data);
 // Converts binaryOutput to hex and prints result to resultOutput
 void concedeButtonCallback(Fl_Widget* w, void* data);
 
-
 // diffValue
 // Difficulty Value is returned as a long
 // Function used to pass difficulty value to assembly function generate
@@ -92,7 +90,5 @@ string decToBinary(long n);
 // its decimal counter-part. Decimal output is returned as an
 // int for use in submitButtonCallback
 int binaryToDecimal(string n);
-
-
 
 #endif // FILE_FLTK_H_INCLUDED

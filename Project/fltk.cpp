@@ -1,7 +1,7 @@
 // fltk.cpp
 // Kelby Hubbard
 // Started: 2020-10-15
-// Updated: 2020-11-22
+// Updated: 2020-11-25
 
 // For CS 301 Fall 2020
 // FLTK source code for Assembly Language Programming Project
@@ -84,8 +84,6 @@ void submitButtonCallback(Fl_Widget* w, void* data)
   // Grab generated binary and convert to decimal
   string binaryOut = o1->value();
 
-
-
   // In the case user didn't click generate first
   if (binaryOut == "")
   {
@@ -111,7 +109,8 @@ void submitButtonCallback(Fl_Widget* w, void* data)
  	  // Display answer was correct
       op->value(correctString());
     }
-     else
+    // If user input was incorrect
+    else
      {
       // Set Result Output Box to red color to show incorrect 
       op->color(88);
@@ -153,9 +152,6 @@ void concedeButtonCallback(Fl_Widget* w, void* data)
    // Set Result Output Box to default (background) color	
    o1->color(49);
   }
- 
-
-
 }
 
 // diffValue
@@ -206,7 +202,6 @@ int binaryToDecimal(string n)
  
         base = base * 2;
     }
- 
     return dec_value;
 }
 

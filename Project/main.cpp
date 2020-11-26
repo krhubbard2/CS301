@@ -1,7 +1,7 @@
 // main.cpp
 // Kelby Hubbard
 // Started: 2020-10-15
-// Updated: 2020-11-22
+// Updated: 2020-11-25
 
 // For CS 301 Fall 2020
 // Main source code for Assembly Language Programming Project
@@ -10,7 +10,7 @@
 // Please note this program is not a very clean way to make this
 // program. This program implements assembly lanaguage (x86-64 via nasm).
 // This program can be made simpler, cleaner and more efficiently without
-// implementation of assembly -- which is not the point of writing this.
+// implementation of assembly -- which was not the point of writing this.
 
 #include "fltk.h"
 
@@ -18,11 +18,10 @@
 // Runs FLTK main window
 int main(int argc, char** argv)
 {
-	  
+
 	// Main Window
 	Fl_Double_Window* mainWindow = new Fl_Double_Window(765, 520, 
 	 												"Binary to Hexadecimal");
-
 
 	// Drop Down Menu Bar Child 0
 	{ Fl_Menu_Bar* menuBar
