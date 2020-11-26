@@ -15,11 +15,11 @@
 // **************************************************************
 
 #include <iostream>
-#include <random> 	// For std::random_device, std::mt19937, std::uniform_int_distribution
-#include <string>	
+#include <random>   // For std::random_device, std::mt19937, std::uniform_int_distribution
+#include <string>   
 using std::string;
-#include <iomanip>	// For std::hex
-#include <sstream>	// For std::stringstream
+#include <iomanip>  // For std::hex
+#include <sstream>  // For std::stringstream
 
 // ***** FLTK Includes *****
 #include <FL/Fl.H>

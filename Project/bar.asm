@@ -32,112 +32,112 @@ je threeDiff
 cmp rdi, 4
 je fourDiff
 
-	; Difficulty level 1
-	oneDiff:
-		mov rdi, 0
-		call time ; For srand use
-		mov rdi, rax
-		call srand ; To use random (clock) seed 
-		call rand ; rax contains random number
+    ; Difficulty level 1
+    oneDiff:
+        mov rdi, 0
+        call time ; For srand use
+        mov rdi, rax
+        call srand ; To use random (clock) seed 
+        call rand ; rax contains random number
 
-		; rand max = 31 
-		mov rdx, 0
-		mov rcx, 32
-		div rcx
+        ; rand max = 31 
+        mov rdx, 0
+        mov rcx, 32
+        div rcx
 
-		; return rand num
-		mov rax, rdx
-		ret
-
-
-	; Difficulty level 2
-	twoDiff:
-		mov rdi, 0
-		call time ; For srand use
-		mov rdi, rax
-		call srand ; To use random (clock) seed 
-		call rand ; rax contains random number
-
-		; rand max = 63
-		mov rdx, 0
-		mov rcx, 64
-		div rcx
-
-		; return rand num
-		mov rax, rdx
-		ret
+        ; return rand num
+        mov rax, rdx
+        ret
 
 
-	; Difficulty level 3
-	threeDiff:
-		mov rdi, 0
-		call time ; For srand use
-		mov rdi, rax
-		call srand ; To use random (clock) seed 
-		call rand ; rax contains random number
+    ; Difficulty level 2
+    twoDiff:
+        mov rdi, 0
+        call time ; For srand use
+        mov rdi, rax
+        call srand ; To use random (clock) seed 
+        call rand ; rax contains random number
 
-		; rand max = 127
-		mov rdx, 0
-		mov rcx, 128
-		div rcx
+        ; rand max = 63
+        mov rdx, 0
+        mov rcx, 64
+        div rcx
 
-		; return rand num
-		mov rax, rdx
-		ret
+        ; return rand num
+        mov rax, rdx
+        ret
 
 
-	; Difficulty level 4
-	fourDiff:
-		mov rdi, 0
-		call time ; For srand use
-		mov rdi, rax
-		call srand ; To use random (clock) seed 
-		call rand ; rax contains random number
+    ; Difficulty level 3
+    threeDiff:
+        mov rdi, 0
+        call time ; For srand use
+        mov rdi, rax
+        call srand ; To use random (clock) seed 
+        call rand ; rax contains random number
 
-		; rand max = 255
-		mov rdx, 0
-		mov rcx, 256
-		div rcx
+        ; rand max = 127
+        mov rdx, 0
+        mov rcx, 128
+        div rcx
 
-		; return rand num
-		mov rax, rdx
-		ret
+        ; return rand num
+        mov rax, rdx
+        ret
+
+
+    ; Difficulty level 4
+    fourDiff:
+        mov rdi, 0
+        call time ; For srand use
+        mov rdi, rax
+        call srand ; To use random (clock) seed 
+        call rand ; rax contains random number
+
+        ; rand max = 255
+        mov rdx, 0
+        mov rcx, 256
+        div rcx
+
+        ; return rand num
+        mov rax, rdx
+        ret
 
 ; String to be passed to FLTK Result Output Box (child 5)
 ; Sring displayed on start up
 resultOutputStartup:
-	mov rax, ROSstring
-	ret
+    mov rax, ROSstring
+    ret
 
 ; String to be passed to FLTK Result Output Box (child 5)
 ; String displayed after FLTK Generate Button (child 1) is pressed
 generateButtonClick:
-	mov rax, GBCstring
-	ret
+    mov rax, GBCstring
+    ret
 
 ; String to be passed to FLTK Result Output Box (child 5)
 ; String displayed after correct guess
 correctString:
-	mov rax, Cstring
-	ret
+    mov rax, Cstring
+    ret
 
 ; String to be passed to FLTK Result Output Box (child 5)
 ; String displayed after incorrect guess
 wrongString:
-	mov rax, Wstring
-	ret
+    mov rax, Wstring
+    ret
 
 
 ; ***** strings *****
 
 ROSstring:
-	db `First click "Generate"`,0
+    db `First click "Generate"`,0
 
 GBCstring:
-	db `Enter your guess then submit.`,0
+    db `Enter your guess then submit.`,0
 
 Cstring:
-	db `Correct!`,0
+    db `Correct!`,0
 
 Wstring:
-	db `Wrong.`,0
+    db `Wrong.`,0

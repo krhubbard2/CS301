@@ -33,20 +33,20 @@ void help(Fl_Widget* w, void* data){
 // Refer to header for documentation
 void quit(Fl_Widget* w, void* data){
   Fl_Window* window = new Fl_Window(340, 150, "Quit");
-  	Fl_Box* box = new Fl_Box(20, 40, 300, 35, "Are you sure you want to quit?");
-  	Fl_Button* yesButton = new Fl_Button(120, 100, 100, 25, "Yes I\'m sure.");
+    Fl_Box* box = new Fl_Box(20, 40, 300, 35, "Are you sure you want to quit?");
+    Fl_Button* yesButton = new Fl_Button(120, 100, 100, 25, "Yes I\'m sure.");
     yesButton->box(FL_PLASTIC_UP_BOX);
-  	yesButton->callback(quitProgram);
+    yesButton->callback(quitProgram);
 
-  	box->show();
-  	window->show();
+    box->show();
+    window->show();
 }
 
 // quitProgram
 // Refer to header for documentation
 void quitProgram(Fl_Widget* w, void* data)
 {
-	exit(0);
+    exit(0);
 }
 
 // ***** Callback Functions *****
@@ -92,7 +92,7 @@ void submitButtonCallback(Fl_Widget* w, void* data)
   }
   else
   {
-  	// convert decimal to hex to compare answer
+    // convert decimal to hex to compare answer
     int decimalOut = binaryToDecimal(binaryOut);
     int decIn;
     std::stringstream stream;
@@ -104,9 +104,9 @@ void submitButtonCallback(Fl_Widget* w, void* data)
     {
       // Generate new binary number
       generateButtonCallback(w, data);
- 	  // Set Result Output Box to green color to show correct
- 	  op->color(63);
- 	  // Display answer was correct
+      // Set Result Output Box to green color to show correct
+      op->color(63);
+      // Display answer was correct
       op->value(correctString());
     }
     // If user input was incorrect
@@ -149,7 +149,7 @@ void concedeButtonCallback(Fl_Widget* w, void* data)
    string out = "The correct answer was " + answer;
    // Display correct answer to Result Output Box
    o1->value(out.c_str());
-   // Set Result Output Box to default (background) color	
+   // Set Result Output Box to default (background) color   
    o1->color(49);
   }
 }

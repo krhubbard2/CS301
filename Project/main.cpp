@@ -19,28 +19,28 @@
 int main(int argc, char** argv)
 {
 
-	// Main Window
-	Fl_Double_Window* mainWindow = new Fl_Double_Window(765, 520, 
-	 												"Binary to Hexadecimal");
+    // Main Window
+    Fl_Double_Window* mainWindow = new Fl_Double_Window(765, 520, 
+                                                    "Binary to Hexadecimal");
 
-	// Drop Down Menu Bar Child 0
-	{ Fl_Menu_Bar* menuBar
-			= new Fl_Menu_Bar(0, 0, 85, 25);
-	  	menuBar->box(FL_PLASTIC_UP_BOX);
-		// When selected runs "generateButtonCallback()" in fltk.cpp
-	    menuBar->add("File/Generate", FL_CTRL + 'g',generateButtonCallback);
-	    // When selected runs "submitButtonCallback()" in fltk.cpp
-	    menuBar->add("File/Submit", FL_CTRL + 's',submitButtonCallback);
-	    // When selected runs "concedeButtonCallback()" in fltk.cpp
-	    menuBar->add("File/Concede", FL_CTRL + 'c', concedeButtonCallback);
-		// When selected runs "quit()" in fltk.cpp
-		menuBar->add("File/Quit", FL_CTRL + 'q',quit);
-		// When selected runs "help()" in fltk.cpp
-		menuBar->add("Help/Help", FL_CTRL + 'h',help);
-	}
+    // Drop Down Menu Bar Child 0
+    { Fl_Menu_Bar* menuBar
+            = new Fl_Menu_Bar(0, 0, 85, 25);
+        menuBar->box(FL_PLASTIC_UP_BOX);
+        // When selected runs "generateButtonCallback()" in fltk.cpp
+        menuBar->add("File/Generate", FL_CTRL + 'g',generateButtonCallback);
+        // When selected runs "submitButtonCallback()" in fltk.cpp
+        menuBar->add("File/Submit", FL_CTRL + 's',submitButtonCallback);
+        // When selected runs "concedeButtonCallback()" in fltk.cpp
+        menuBar->add("File/Concede", FL_CTRL + 'c', concedeButtonCallback);
+        // When selected runs "quit()" in fltk.cpp
+        menuBar->add("File/Quit", FL_CTRL + 'q',quit);
+        // When selected runs "help()" in fltk.cpp
+        menuBar->add("Help/Help", FL_CTRL + 'h',help);
+    }
 
-	// Generate Button Child 1
-	{ Fl_Button* generateButton = new Fl_Button(118, 255, 185, 100, "Generate");
+    // Generate Button Child 1
+    { Fl_Button* generateButton = new Fl_Button(118, 255, 185, 100, "Generate");
       generateButton->box(FL_PLASTIC_UP_BOX);
 
       // On button press
@@ -94,11 +94,11 @@ int main(int argc, char** argv)
       concedeButton->callback(concedeButtonCallback);
     }
 
-	//Show main FLTK window
-	mainWindow->end();
-	mainWindow->resizable();
-	mainWindow->show(argc, argv);
-	return (Fl::run());
+    //Show main FLTK window
+    mainWindow->end();
+    mainWindow->resizable();
+    mainWindow->show(argc, argv);
+    return (Fl::run());
 }
 
 
